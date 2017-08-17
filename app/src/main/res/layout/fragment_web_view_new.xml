@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_web_view_new"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.WebViewNewActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        android:background="?attr/colorPrimary">
+
+
+        <!--左边-->
+        <ImageButton
+            android:id="@+id/ib_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/ic_richpush_actionbar_back"/>
+        <ImageButton
+            android:id="@+id/ib_left_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="35dp"
+            android:background="@null"
+            android:src="@mipmap/ic_clear_01"/>
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/orther_action_bar_textSize"
+            android:textStyle="bold"
+            />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ProgressBar
+        android:id="@+id/pb_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/webview_progressBar_height"
+        android:indeterminateOnly="false"
+        android:max="100"
+        >
+        <!--android:progressDrawable="@drawable/progress_bar_states"-->
+    </ProgressBar>
+
+</LinearLayout>

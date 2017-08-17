@@ -5,6 +5,8 @@ import android.os.Build;
 
 import com.xinaliu.inspiration.util.LogUtils;
 import com.xinaliu.inspiration.util.NetWorkUtils;
+import com.xinaliu.inspiration.util.image.GildePresenterImpl;
+import com.xinaliu.inspiration.util.image.util.ImageHelper;
 
 
 /**
@@ -32,6 +34,7 @@ public class BaseApplication extends Application{
 
         CrashUtils.getInstance().init(this);
         new LogUtils.Builder(this).setLogSwitch(true);
+        ImageHelper.init(GildePresenterImpl.newInstance(this));
     }
 
 }
