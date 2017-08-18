@@ -6,7 +6,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.zhaoyao.zhaoyaohealthy.R;
+import com.xinaliu.inspiration.R;
+
 
 /**
  * Created by liuwei on 2017/8/1 15:10

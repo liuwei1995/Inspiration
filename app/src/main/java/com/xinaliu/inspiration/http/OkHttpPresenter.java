@@ -266,6 +266,7 @@ public final class OkHttpPresenter implements IHttpPresenter {
         }
 
         Headers.Builder headersBuilder = new Headers.Builder();
+//        headersBuilder.add("X-NAPI-APP-ID", DeviceUtils.getUDID());
         requestBuilder = requestBuilder.headers(headersBuilder.build());
 
         Request request = requestBuilder.build();

@@ -1,26 +1,21 @@
 package com.xinaliu.inspiration.util.webview;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.NonNull;
-import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.zhaoyao.zhaoyaohealthy.BaseApplication;
-import com.zhaoyao.zhaoyaohealthy.activity.WebViewActivity;
-import com.zhaoyao.zhaoyaohealthy.util.DeviceUtils;
+import com.xinaliu.inspiration.BaseApplication;
+import com.xinaliu.inspiration.util.DeviceUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -65,98 +60,98 @@ public class WebViewUtils {
     public synchronized static void setWebView(@NonNull final Context mContext, final WebView mWebView, final  ProgressBar pbProgress, final Boolean isStartActivity,final Boolean isOnKey,final WebViewClientCallback webViewClientCallback){
         if(mWebView != null){
 
-            mWebView.setWebViewClient(new WebViewClient(){
-                @Override
-                public void onLoadResource(WebView view, String url) {
-                    super.onLoadResource(view, url);
-                }
-
-                @Override
-                public void onPageStarted(WebView view, String url, Bitmap favicon) {
-//                    view.getSettings().setBlockNetworkImage(true);
-                    super.onPageStarted(view, url, favicon);
-                }
-
-                @Override
-                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                    super.onReceivedError(view, request, error);
-                    if(webViewClientCallback != null)
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            webViewClientCallback.onReceivedError(view,request,error);
-                        }
-                }
-
-                @Override
-                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                    super.onReceivedError(view, errorCode, description, failingUrl);
-                    if(webViewClientCallback != null) {
-                        webViewClientCallback.onReceivedError(view,errorCode,description,failingUrl);
-                    }
-                }
-
-                @Override
-                public void onPageFinished(WebView view, String url) {
-//                    view.getSettings().setBlockNetworkImage(false);
-//                    //判断webview是否加载了，图片资源
-//                    if (!view.getSettings().getLoadsImagesAutomatically()) {
-//                        //设置wenView加载图片资源
+//            mWebView.setWebViewClient(new WebViewClient(){
+//                @Override
+//                public void onLoadResource(WebView view, String url) {
+//                    super.onLoadResource(view, url);
+//                }
+//
+//                @Override
+//                public void onPageStarted(WebView view, String url, Bitmap favicon) {
+////                    view.getSettings().setBlockNetworkImage(true);
+//                    super.onPageStarted(view, url, favicon);
+//                }
+//
+//                @Override
+//                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+//                    super.onReceivedError(view, request, error);
+//                    if(webViewClientCallback != null)
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                            webViewClientCallback.onReceivedError(view,request,error);
+//                        }
+//                }
+//
+//                @Override
+//                public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+//                    super.onReceivedError(view, errorCode, description, failingUrl);
+//                    if(webViewClientCallback != null) {
+//                        webViewClientCallback.onReceivedError(view,errorCode,description,failingUrl);
+//                    }
+//                }
+//
+//                @Override
+//                public void onPageFinished(WebView view, String url) {
+////                    view.getSettings().setBlockNetworkImage(false);
+////                    //判断webview是否加载了，图片资源
+////                    if (!view.getSettings().getLoadsImagesAutomatically()) {
+////                        //设置wenView加载图片资源
+////                        view.getSettings().setLoadsImagesAutomatically(true);
+////                    }
+//                    if(!view.getSettings().getLoadsImagesAutomatically()) {
 //                        view.getSettings().setLoadsImagesAutomatically(true);
 //                    }
-                    if(!view.getSettings().getLoadsImagesAutomatically()) {
-                        view.getSettings().setLoadsImagesAutomatically(true);
-                    }
-                    super.onPageFinished(view, url);
-                    if(webViewClientCallback != null)
-                    webViewClientCallback.onPageFinished(view,url);
-                }
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                    String url = request.getUrl().toString();
-                    if(isStartActivity != null && isStartActivity){
-                        if (Patterns.WEB_URL.matcher(url).matches()) {
-                            //符合标准
-//                            TestActivity.startActivity(mContext,url);
-                            WebViewActivity.startActivity(mContext,url);
-                        }
-                    }else {
-                        if (Patterns.WEB_URL.matcher(url).matches()) {
-                            //网络请求
-                            if (BaseApplication.NETWORK_IS_AVAILABLE) {
-                                //不使用缓存：
-                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
-                            }else {
-                                //优先使用缓存：
-                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
-                            }
-                            mWebView.loadUrl(url);
-                        }
-                    }
-                    return true;
-                }
-                @Override
-                public boolean shouldOverrideUrlLoading(WebView webview, String url) {
-                    if(isStartActivity != null && isStartActivity){
-                        if (Patterns.WEB_URL.matcher(url).matches()) {
-                            //符合标准
-//                            TestActivity.startActivity(mContext,url);
-                            WebViewActivity.startActivity(mContext,url);
-                        }
-                    }else {
-                        if (Patterns.WEB_URL.matcher(url).matches()) {
-                            //网络请求
-                                if (BaseApplication.NETWORK_IS_AVAILABLE) {
-                                //不使用缓存：
-                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
-                            }else {
-                                //优先使用缓存：
-                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
-                            }
-                            mWebView.loadUrl(url);
-                        }
-                    }
-                    return true;
-                }
-            });
+//                    super.onPageFinished(view, url);
+//                    if(webViewClientCallback != null)
+//                    webViewClientCallback.onPageFinished(view,url);
+//                }
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+//                    String url = request.getUrl().toString();
+//                    if(isStartActivity != null && isStartActivity){
+//                        if (Patterns.WEB_URL.matcher(url).matches()) {
+//                            //符合标准
+////                            TestActivity.startActivity(mContext,url);
+//                            WebViewActivity.startActivity(mContext,url);
+//                        }
+//                    }else {
+//                        if (Patterns.WEB_URL.matcher(url).matches()) {
+//                            //网络请求
+//                            if (BaseApplication.NETWORK_IS_AVAILABLE) {
+//                                //不使用缓存：
+//                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
+//                            }else {
+//                                //优先使用缓存：
+//                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
+//                            }
+//                            mWebView.loadUrl(url);
+//                        }
+//                    }
+//                    return true;
+//                }
+//                @Override
+//                public boolean shouldOverrideUrlLoading(WebView webview, String url) {
+//                    if(isStartActivity != null && isStartActivity){
+//                        if (Patterns.WEB_URL.matcher(url).matches()) {
+//                            //符合标准
+////                            TestActivity.startActivity(mContext,url);
+//                            WebViewActivity.startActivity(mContext,url);
+//                        }
+//                    }else {
+//                        if (Patterns.WEB_URL.matcher(url).matches()) {
+//                            //网络请求
+//                                if (BaseApplication.NETWORK_IS_AVAILABLE) {
+//                                //不使用缓存：
+//                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);  //设置 缓存模式
+//                            }else {
+//                                //优先使用缓存：
+//                                mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);  //设置 缓存模式
+//                            }
+//                            mWebView.loadUrl(url);
+//                        }
+//                    }
+//                    return true;
+//                }
+//            });
             if(isOnKey != null && isOnKey){
                 //点击后退按钮,让WebView后退一页(也可以覆写Activity的onKeyDown方法)
                 mWebView.setOnKeyListener(new View.OnKeyListener() {

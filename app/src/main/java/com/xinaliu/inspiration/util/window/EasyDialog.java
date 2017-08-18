@@ -28,7 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zhaoyao.zhaoyaohealthy.R;
+import com.xinaliu.inspiration.R;
 
 import java.util.ArrayList;
 import java.util.List;

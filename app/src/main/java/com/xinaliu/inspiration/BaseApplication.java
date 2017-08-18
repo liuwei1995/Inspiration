@@ -3,6 +3,8 @@ package com.xinaliu.inspiration;
 import android.app.Application;
 import android.os.Build;
 
+import com.xinaliu.inspiration.http.OkHttpPresenter;
+import com.xinaliu.inspiration.http.util.HttpHelper;
 import com.xinaliu.inspiration.util.LogUtils;
 import com.xinaliu.inspiration.util.NetWorkUtils;
 import com.xinaliu.inspiration.util.image.GildePresenterImpl;
@@ -26,13 +28,13 @@ public class BaseApplication extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-
+        CrashUtils.getInstance().init(this);
         NETWORK_IS_AVAILABLE = NetWorkUtils.isNetworkConnected(this);
         if(NETWORK_IS_AVAILABLE) {
             isWiFi = NetWorkUtils.isWifiConnected(this);
         }
+        HttpHelper.newInstance().init(OkHttpPresenter.newInstance().init(this));
 
-        CrashUtils.getInstance().init(this);
         new LogUtils.Builder(this).setLogSwitch(true);
         ImageHelper.init(GildePresenterImpl.newInstance(this));
     }
