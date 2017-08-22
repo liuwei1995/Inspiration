@@ -6,4 +6,8 @@
     <color name="text_color_light_black">#222222</color>
     <!--导航栏背景-->
     <color name="background_navigationbar">#f6f5f4</color>
+
+    <color name="underline_color">#dad9d9</color>
+
+
 </resources>

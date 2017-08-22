@@ -1,5 +1,6 @@
 package com.xinaliu.inspiration;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -13,14 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.xinaliu.inspiration.http.util.HttpHelper;
-import com.xinaliu.inspiration.http.util.ICallback;
-import com.xinaliu.inspiration.util.LogUtils;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import com.xinaliu.inspiration.activity.LoginActivity;
+import com.xinaliu.inspiration.service.MqService;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,28 +31,12 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                MqQueueService.actionStart(view.getContext());
+//                MqService.actionStart(view.getContext());
+
+                LoginActivity.startActivity(view.getContext());
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                Map<String, Object> map = new HashMap<>();
-                map.put("_app_id","hottopic");
-                map.put("_fetch","1");
-                map.put("_fetch_incrs","1");
-                map.put("_sort","_lists.score:desc");
-                map.put("_lists","_lists.list_id:\"index_promotion\"");
-                String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-                map.put("_objects","active_time:[* TO "+format+"]");
-//                map.put("_objects","active_time:[* TO \"2017-8-18 09:26:00\"]");
-                map.put("_select","url,title,cover,tag,desc,comment_total,incrs_flag,list_name,post_type");
-                String ip = "http://napi.uc.cn/3/classes/topic/search";
-//                http://napi.uc.cn/3/classes/topic/search?_app_id=hottopic&_fetch=1&_fetch_incrs=1&_sort=_lists.score%3Adesc&_lists=_lists.list_id%3A%22index_promotion%22&_objects=active_time%3A%5B*+TO+%222017-8-18+10%3A42%3A00%22%5D&_select=url%2Ctitle%2Ccover%2Ctag%2Cdesc%2Ccomment_total%2Cincrs_flag%2Clist_name%2Cpost_type
-                String url = "http://napi.uc.cn/3/classes/topic/search?_app_id=hottopic&_fetch=1&_fetch_incrs=1&_sort=_lists.score%3Adesc&_lists=_lists.list_id%3A%22index_promotion%22&_objects=active_time%3A%5B*+TO+%222017-8-18+10%3A42%3A00%22%5D&_select=url%2Ctitle%2Ccover%2Ctag%2Cdesc%2Ccomment_total%2Cincrs_flag%2Clist_name%2Cpost_type";
-//                HttpHelper.newInstance().post(ip, map, new ICallback() {
-                HttpHelper.newInstance().post(url,new ICallback() {
-                    @Override
-                    public void onCallbackResult(Boolean isSuccess, String result) {
-                        LogUtils.d(result);
-                    }
-                });
             }
         });
 
@@ -110,6 +89,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+//            stopService(new Intent(this,MqQueueService.class));
+            stopService(new Intent(this,MqService.class));
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

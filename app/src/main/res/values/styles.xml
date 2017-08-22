@@ -74,6 +74,12 @@
         <item name="contentInsetStartWithNavigation">0dp</item>
     </style>
 
+<!---->
+    <style name="login_EditText_underline" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/underline_color</item>
+        <item name="colorControlActivated">@color/underline_color</item>
+    </style>
+
 
 
 </resources>
