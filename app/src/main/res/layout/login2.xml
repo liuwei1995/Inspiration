@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40.4dp"
+        android:layout_height="40.4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="118.6dp"
+        android:layout_marginStart="118.6dp"
+        android:layout_marginTop="34.3dp"
+        app:srcCompat="@mipmap/spirit"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="39.1dp"
+        android:layout_height="45.3dp"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_toRightOf="@+id/imageView6"
+        app:srcCompat="@mipmap/sense"/>
+
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="247.1dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:drawableLeft="@mipmap/user"
+        android:drawablePadding="17.7dp"
+        android:ems="10"
+        android:hint="手机号或邮箱"
+        android:inputType="phone"
+        android:textColor="#3f3f3f"
+        android:textCursorDrawable="@drawable/underline_color"
+        android:textSize="30px"
+        tools:ignore="MissingConstraints"/>
+
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="247.1dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPhoneNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:drawableLeft="@mipmap/lock"
+        android:drawablePadding="20.4dp"
+        android:ems="10"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:textColor="#3f3f3f"
+        android:textCursorDrawable="@drawable/underline_color"
+        android:textSize="30px"
+        tools:ignore="MissingConstraints"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="244.4dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText"
+        android:layout_below="@+id/editText"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/background_btn_login"
+        android:paddingBottom="11.1dp"
+        android:paddingTop="9.7dp"
+        android:text="登录"
+        android:textColor="#f3f2ef"
+        android:textSize="34px"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints"/>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="46.6dp"
+        android:text="忘记密码"
+        android:textColor="#3f3f3f"
+        android:textSize="30px"
+        tools:ignore="MissingConstraints"/>
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignRight="@+id/button"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="46.6dp"
+        android:text="手机注册"
+        android:textColor="#3f3f3f"
+        android:textSize="30px"
+        tools:ignore="MissingConstraints"/>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="111.5dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/background_login"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="38.6dp"
+                android:layout_height="38.6dp"
+                app:srcCompat="@mipmap/weixin_normal"
+                android:layout_toLeftOf="@+id/imageView9"
+                android:layout_alignTop="@+id/imageView9"
+                android:layout_marginRight="32.4dp"
+                />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="38.6dp"
+                android:layout_height="38.6dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="22.6dp"
+                app:srcCompat="@mipmap/qq"
+                tools:ignore="MissingConstraints"/>
+
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="38.6dp"
+                android:layout_height="38.6dp"
+                android:layout_marginLeft="32.4dp"
+                android:layout_toRightOf="@+id/imageView9"
+                android:layout_alignTop="@+id/imageView9"
+                app:srcCompat="@mipmap/micro_blog"
+                />
+
+
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</RelativeLayout>

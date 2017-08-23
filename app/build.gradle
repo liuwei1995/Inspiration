@@ -28,6 +28,7 @@ dependencies {
     compile files('libs/universal-image-loader-1.9.5.jar')
     compile files('libs/org.eclipse.paho.client.mqttv3.jar')
     compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:percent:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'

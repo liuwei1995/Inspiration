@@ -1,136 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/background_login"
-    tools:context="com.xinaliu.inspiration.activity.LoginActivity">
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               xmlns:app="http://schemas.android.com/apk/res-auto"
+                                               xmlns:tools="http://schemas.android.com/tools"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        app:layout_heightPercent="12.6%"
+        app:layout_marginLeftPercent="34.3%"
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="12.6%"
+        app:srcCompat="@mipmap/spirit"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_toRightOf="@+id/imageView6"
+        app:layout_heightPercent="14.2%"
+        app:layout_marginLeftPercent="6%"
+        app:layout_widthPercent="12.2%"
+        app:srcCompat="@mipmap/sense"/>
+
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="76.25%">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/user"
+            android:drawablePadding="17.7dp"
+            android:ems="10"
+            android:hint="手机号或邮箱"
+            android:inputType="phone"
+            android:maxLength="12"
+            android:paddingLeft="@dimen/album_dp_6"
+            android:textColor="#3f3f3f"
+            android:textCursorDrawable="@drawable/underline_color"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText,RtlSymmetry"/>
+
+    </android.support.design.widget.TextInputLayout>
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26px"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
         android:drawableLeft="@mipmap/user"
-        android:drawablePadding="10dp"
+        android:drawablePadding="17.7dp"
         android:ems="10"
         android:hint="手机号或邮箱"
         android:inputType="phone"
+        android:lineSpacingExtra="@dimen/album_dp_15"
+        android:maxLength="12"
+        android:paddingLeft="@dimen/album_dp_6"
         android:textColor="#3f3f3f"
         android:textCursorDrawable="@drawable/underline_color"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints"/>
+        android:textSize="14sp"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints,RtlSymmetry"/>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="51px"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@mipmap/qq"
-        tools:ignore="MissingConstraints"/>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="51px"
-        android:layout_marginRight="73px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/imageView2"
-        app:srcCompat="@mipmap/weixin_normal"
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/etPhoneNumber"
+        android:layout_centerHorizontal="true"
+        android:background="#ded9d9"
+        app:layout_marginTopPercent="1.8%"
+        app:layout_widthPercent="76.25%"
         />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="51px"
-        android:layout_marginLeft="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/imageView2"
-        app:srcCompat="@mipmap/micro_blog"
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignLeft="@+id/etPhoneNumber"
+        android:layout_alignStart="@+id/etPhoneNumber"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:drawableLeft="@mipmap/lock"
+        android:drawablePadding="20.4dp"
+        android:ems="10"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:paddingLeft="@dimen/album_dp_6"
+        android:textColor="#3f3f3f"
+        android:textCursorDrawable="@drawable/underline_color"
+        android:textSize="14sp"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="6%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints,RtlSymmetry"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:background="#ded9d9"
+        app:layout_marginTopPercent="1.8%"
+        app:layout_widthPercent="76.25%"
         />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/background_btn_login"
+        android:paddingBottom="11.1dp"
+        android:paddingTop="9.7dp"
+        android:text="登录"
+        android:textColor="#f3f2ef"
+        android:textSize="34px"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints"/>
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="97dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_below="@+id/button"
         android:text="忘记密码"
         android:textColor="#3f3f3f"
-        android:textSize="30px"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/imageView3"
-        tools:ignore="MissingConstraints"/>
+        android:textSize="12sp"
+        app:layout_marginTopPercent="8%"
+        tools:ignore="HardcodedText,MissingConstraints"/>
+
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="63dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="97dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignRight="@+id/button"
+        android:layout_below="@+id/button"
         android:text="手机注册"
         android:textColor="#3f3f3f"
-        android:textSize="30px"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintLeft_toLeftOf="@+id/imageView4"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="12sp"
+        app:layout_marginTopPercent="8%"
         tools:ignore="MissingConstraints"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="53dp"
-        android:background="@drawable/background_btn_login"
-        android:paddingBottom="25px"
-        android:paddingLeft="228px"
-        android:paddingRight="228px"
-        android:paddingTop="22px"
-        android:text="登录"
-        android:textColor="#f3f2ef"
-        android:textSize="34px"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints"/>
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:drawableLeft="@mipmap/lock"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="输入密码"
-        android:inputType="textPassword"
-        android:textColor="#3f3f3f"
-        android:textCursorDrawable="@drawable/underline_color"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints"/>
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@mipmap/background_login"
+        app:layout_heightPercent="19.6%">
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignTop="@+id/imageView9"
+                android:layout_toLeftOf="@+id/imageView9"
+                app:layout_heightPercent="34.6%"
+                app:layout_marginRightPercent="10%"
+                app:layout_widthPercent="12%"
+                app:srcCompat="@mipmap/weixin_normal"
+                />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:layout_heightPercent="34.6%"
+                app:layout_widthPercent="12%"
+                app:srcCompat="@mipmap/qq"
+                tools:ignore="MissingConstraints"/>
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignTop="@+id/imageView9"
+                android:layout_toRightOf="@+id/imageView9"
+                app:layout_heightPercent="34.6%"
+                app:layout_marginLeftPercent="10%"
+                app:layout_widthPercent="12%"
+                app:srcCompat="@mipmap/micro_blog"
+                />
+        </android.support.percent.PercentRelativeLayout>
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.percent.PercentRelativeLayout>
