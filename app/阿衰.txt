@@ -4,13 +4,13 @@ http://mhpic.samanlehua.com/comic/A%2F%E9%98%BF%E8%A1%B0ONLINE%2F%E7%AC%AC111%E6
 
 
 
-
+搜索
 https://api.yyhao.com/app_api/v2/getsortlist/?comic_sort=&page=1&orderby=click&search_key=%E9%98%BF%E8%A1%B0
 https://api.yyhao.com/app_api/v2/getsortlist/?comic_sort=&page=1&orderby=click&search_key=阿衰
 
 
 {"page":{"current_page":1,"total_page":1,"orderby":"click","comic_sort":"","search_key":"阿衰","time":125},"data":[{"comic_id":1368,"comic_name":"阿衰","last_chapter_name":"第274话"},{"comic_id":26816,"comic_name":"阿衰online","last_chapter_name":"第274话"},{"comic_id":12103,"comic_name":"阿衰和漫画怕踢","last_chapter_name":"第200期"}]}
-
+通过comic_id去获取详情
 https://api.yyhao.com/app_api/v2/getcomicinfo/?comic_id=1368
 
 
@@ -44,3 +44,34 @@ http://mhpic.samanlehua.com/comic/A/%E9%98%BF%E8%A1%B0ONLINE/273%E8%AF%9DSM/1.jp
 
 http://server.samanlehua.com:82/mhpic.asp
 
+
+https://api.yyhao.com/app_api/v2/getconfig/
+
+
+首页热门  前面几个分类
+https://api.yyhao.com/app_api/v2/getrecommend/?client-channel=huawei&client-version=1.6.2&client-type=android
+
+
+视频
+http://openapi.look.360.cn/v2/list?u=863791031381379&n=10&sign=ex_33b3e392&access_token=106622880d7e4754ebfa3b49e12a9e21506246304&c=video&f=json&version=1.6.2&sv=1&usid=917346&channel=33&scene=1&action=1
+
+
+http://openapi.look.360.cn/v2/list?u=863791031381379&n=10&sign=ex_33b3e392&access_token=106622880d7e4754ebfa3b49e12a9e21506246304&c=video&f=json&version=1.6.2&sv=1&usid=917346&channel=33&scene=1&action=1
+
+
+排行榜
+https://api.yyhao.com/app_api/v2/rankinglist/?client-channel=huawei&client-version=1.6.2&client-type=android
+
+http://api.yyhao.com/app_api/v2/rankinglist/?refreshTime=25060912
+
+收藏榜
+https://api.yyhao.com/app_api/v2/rankinglist/?refreshTime=25060913&client-channel=huawei&client-version=1.6.2&client-type=android
+https://api.yyhao.com/app_api/v2/rankinglist/?refreshTime=25060913&client-channel=huawei&client-version=1.6.2&client-type=android
+连载榜
+https://api.yyhao.com/app_api/v2/rankinglist/?refreshTime=25060914&client-channel=huawei&client-version=1.6.2&client-type=android
+
+http://api.yyhao.com/app_api/v2/rankinglist/?refreshTime=25060914
+
+
+神漫
+https://api.yyhao.com/app_api/v2/getsortlist/?comic_sort=shenman&page=1&orderby=click&search_key=
