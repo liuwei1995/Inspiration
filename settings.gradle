@@ -1,1 +1,2 @@
-include ':app', ':aliyun_oss_android_sdk'
+include ':app'
+//, ':aliyun_oss_android_sdk'
