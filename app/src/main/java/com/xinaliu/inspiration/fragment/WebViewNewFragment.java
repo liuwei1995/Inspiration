@@ -95,10 +95,24 @@ public class WebViewNewFragment extends BaseNewFragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (mWebView != null) {
+            mWebView.onResume();
+            mWebView.resumeTimers();
+        }
         PersistentCookieStore cookieStore = new PersistentCookieStore(mContext);
         List<Cookie> cookies = cookieStore.getCookies();
         WebViewUtils.setCookies(mContext,url, cookies);
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mWebView != null) {
+            mWebView.onPause();
+            mWebView.pauseTimers();
+        }
+    }
+
     private String url;
 
     @Override
