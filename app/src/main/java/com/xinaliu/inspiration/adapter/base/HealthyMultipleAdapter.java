@@ -62,6 +62,7 @@ public abstract class HealthyMultipleAdapter<T> extends RecyclerView.Adapter<Hea
 
     @Override
     public int getItemViewType(int position) {
+        if (position >= mDatas.size())return -1;
         return getItemViewType(position,mDatas.get(position));
     }
 

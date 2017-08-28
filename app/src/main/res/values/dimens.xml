@@ -8,4 +8,8 @@
     <dimen name="webview_progressBar_height">2dp</dimen>
     <dimen name="orther_action_bar_textSize">14sp</dimen>
     <dimen name="actionBarSize">45dp</dimen>
+
+    <!--底部导航栏的高度-->
+    <dimen name="BottomTabBarHeight">56dp</dimen>
+
 </resources>

@@ -80,6 +80,9 @@
         <item name="colorControlActivated">@color/underline_color</item>
     </style>
 
-
+    <!--漫画底部导航栏-->
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">16sp</item>
+    </style>
 
 </resources>

@@ -115,18 +115,21 @@ public abstract class BaseNewFragment extends Fragment implements View.OnClickLi
      * 如果有数据没有请求成功  如果为false   会调用{@link #initData()}
      * 加载成功
      */
-    protected boolean isLoadSuccess = true;
+//    protected boolean isLoadSuccess = true;
 
     @CallSuper
     protected void onVisible() {
-        if (isLoadSuccess){
-            if (isPrepared){
-                lazyLoad();
-            }
-        }else{
-            isLoadSuccess = true;
-            initData();
+        if (isPrepared){
+            lazyLoad();
         }
+//        if (isLoadSuccess){
+//            if (isPrepared){
+//                lazyLoad();
+//            }
+//        }else{
+//            isLoadSuccess = true;
+//            initData();
+//        }
     }
 
     protected void onInvisible() {

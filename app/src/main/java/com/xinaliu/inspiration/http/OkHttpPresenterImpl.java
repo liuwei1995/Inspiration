@@ -28,7 +28,7 @@ import okhttp3.Response;
  * Created by liuwei on 2017/5/25 09:33
  */
 
-public final class OkHttpPresenter implements IHttpPresenter {
+public final class OkHttpPresenterImpl implements IHttpPresenter {
 
 
 //    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -46,11 +46,11 @@ public final class OkHttpPresenter implements IHttpPresenter {
 
     private Context mContext;
 
-    private OkHttpPresenter() {
+    private OkHttpPresenterImpl() {
 
     }
 
-    public OkHttpPresenter init(Context context){
+    public OkHttpPresenterImpl init(Context context){
         if (context != null && context.getApplicationContext() != null){
             this.mContext = context.getApplicationContext();
         }else {
@@ -59,13 +59,13 @@ public final class OkHttpPresenter implements IHttpPresenter {
         return this;
     }
 
-    private static OkHttpPresenter okHttpUtils = null;
+    private static OkHttpPresenterImpl okHttpUtils = null;
     private static Handler mainHandler;
-    public static OkHttpPresenter newInstance() {
+    public static OkHttpPresenterImpl newInstance() {
         if (okHttpUtils == null) {
-            synchronized (OkHttpPresenter.class){
+            synchronized (OkHttpPresenterImpl.class){
                 if(okHttpUtils == null){
-                    okHttpUtils = new OkHttpPresenter();
+                    okHttpUtils = new OkHttpPresenterImpl();
                     //更新UI线程
                     mainHandler = new Handler(Looper.getMainLooper());
                 }

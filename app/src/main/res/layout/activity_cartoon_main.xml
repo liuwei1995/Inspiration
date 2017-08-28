@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:id="@+id/fl_Cartoon_Main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_BottomTabBar"
+        android:layout_alignParentLeft="true"
+        android:visibility="gone"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </FrameLayout>
+    <!--<android.support.design.widget.TabLayout-->
+        <!--android:id="@+id/tablayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_scrollFlags="scroll|enterAlways"-->
+        <!--app:tabBackground="@color/background_navigationbar"-->
+        <!--app:tabIndicatorColor="@color/background_navigationbar"-->
+        <!--app:tabTextAppearance="@style/MyTabLayoutTextAppearance"-->
+        <!--app:tabMode="scrollable"-->
+        <!--app:tabSelectedTextColor="@color/color_navigationbar_selected_text"-->
+        <!--app:tabTextColor="@color/color_navigationbar_text"-->
+        <!--&gt;-->
+    <!--</android.support.design.widget.TabLayout>-->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_below="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fontColor"
+        android:layout_above="@+id/ll_BottomTabBar"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <LinearLayout
+        android:id="@+id/ll_BottomTabBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/BottomTabBarHeight"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="gone">
+    </LinearLayout>
+</android.support.percent.PercentRelativeLayout>
