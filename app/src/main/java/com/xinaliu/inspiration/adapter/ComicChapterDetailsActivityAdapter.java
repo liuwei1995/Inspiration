@@ -80,7 +80,7 @@ public class ComicChapterDetailsActivityAdapter extends HealthyMultipleAdapter<C
 
         @Override
         public void convert(HealthyViewHolder holder, ComicChapterDetailsEntity.ComicChapterBean.ChapterListBean item, int position) {
-
+            holder.setText(R.id.tv_title,item.getChapter_name());
         }
     }
     public class ItemActivityComicChapterDetailsFanwai extends HealthyAdapter<ComicChapterDetailsEntity.ComicChapterBean.ChapterListBean>{
@@ -91,7 +91,7 @@ public class ComicChapterDetailsActivityAdapter extends HealthyMultipleAdapter<C
 
         @Override
         public void convert(HealthyViewHolder holder, ComicChapterDetailsEntity.ComicChapterBean.ChapterListBean item, int position) {
-
+            holder.setText(R.id.tv_title,item.getChapter_name());
         }
     }
 
