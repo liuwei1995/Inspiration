@@ -26,14 +26,13 @@
             android:layout_marginLeft="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="3dp"
-            android:text="连载"/>
+            android:text="单行本"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rlv_item_activity_comic_chapter_details_serial"
+        android:id="@+id/rlv_item_activity_comic_chapter_details_offprint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:descendantFocusability="afterDescendants"/>
+        android:overScrollMode="never"/>
 
 </LinearLayout>

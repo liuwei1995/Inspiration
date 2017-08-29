@@ -36,6 +36,7 @@ public class BaseApplication extends Application{
         HttpHelper.newInstance().init(OkHttpPresenterImpl.newInstance().init(this));
 
         new LogUtils.Builder(this).setLogSwitch(true);
+//        ImageHelper.init(ImageLoaderPresenterImpl.newInstance(this));
         ImageHelper.init(GildePresenterImpl.newInstance(this));
     }
 

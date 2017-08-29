@@ -2,6 +2,7 @@ package com.xinaliu.inspiration.adapter.base;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
@@ -75,6 +76,7 @@ public class HealthyViewHolder extends RecyclerView.ViewHolder {
      */
     public HealthyViewHolder setText(int viewId, String text) {
         TextView view = getView(viewId);
+        if (view != null)
         view.setText(text);
         return this;
     }
@@ -88,7 +90,14 @@ public class HealthyViewHolder extends RecyclerView.ViewHolder {
      */
     public HealthyViewHolder setImageResource(@IdRes int viewId,@DrawableRes int drawableId) {
         ImageView view = getView(viewId);
+        if (view != null)
         view.setImageResource(drawableId);
+        return this;
+    }
+    public HealthyViewHolder setImageDrawable(@IdRes int viewId,Drawable drawable) {
+        ImageView view = getView(viewId);
+        if (view != null)
+        view.setImageDrawable(drawable);
         return this;
     }
 
@@ -101,6 +110,7 @@ public class HealthyViewHolder extends RecyclerView.ViewHolder {
      */
     public HealthyViewHolder setImageBitmap(int viewId, Bitmap bm) {
         ImageView view = getView(viewId);
+        if (view != null)
         view.setImageBitmap(bm);
         return this;
     }

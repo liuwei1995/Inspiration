@@ -22,5 +22,9 @@
     <color name="text_red">#ff3333</color>
     <!--白色-->
     <color name="text_white">#ffffff</color>
+    <!-- 亮灰色 -->
+    <color name="bright_grey">#c0c0c0</color>
+
+    <color name="dark_grey">#808080</color>
 
 </resources>

@@ -54,7 +54,7 @@ public abstract class HealthyAdapter<T> extends RecyclerView.Adapter<HealthyView
 
     @Override
     public int getItemCount() {
-        return mDatas==null?0:mDatas.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
 
     @Override

@@ -6,9 +6,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,21 +21,15 @@ public class HealthyMultipleViewHolder<T>  extends RecyclerView.ViewHolder {
 
     private static final String TAG = "SearchActivity1ViewHold";
 
-    private int viewType;
 
     private final SparseArray<View> mViews;
     private View mConvertView;
 
-    public HealthyMultipleViewHolder(ViewGroup parent, int viewType, int mItemLayoutId) {
-        super(LayoutInflater.from(parent.getContext()).inflate(mItemLayoutId, parent, false));
-        this.viewType = viewType;
-        this.mViews = new SparseArray<View>();
+    public HealthyMultipleViewHolder(View itemView, int viewType) {
+        super(itemView);
+        this.mViews = new SparseArray<>();
         mConvertView = itemView;
         mConvertView.setTag(this);
-    }
-
-    public  void convert(HealthyMultipleViewHolder holder,T item,int position,int viewType){
-
     }
 
     /**

@@ -12,13 +12,13 @@ import android.view.ViewGroup;
 
 import com.xinaliu.inspiration.IView.CartoonRecommendChildFragmentView;
 import com.xinaliu.inspiration.R;
+import com.xinaliu.inspiration.activity.ComicChapterDetailsActivity;
 import com.xinaliu.inspiration.adapter.CartoonRecommendChildFragmentAdapter;
 import com.xinaliu.inspiration.adapter.base.HealthyAdapter;
 import com.xinaliu.inspiration.entity.KanDongManEntity;
 import com.xinaliu.inspiration.persenter.fragment.CartoonRecommendChildFragmentPersenter;
 import com.xinaliu.inspiration.persenter.fragment.impl.CartoonRecommendChildFragmentPersenterImpl;
 import com.xinaliu.inspiration.util.GridSpacingItemDecoration;
-import com.xinaliu.inspiration.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +93,6 @@ public class CartoonRecommendChildFragment extends BaseNewFragment implements Ca
 
     @Override
     public void onItemClick(View view, KanDongManEntity.DataBean item, int position) {
-        ToastUtil.toastSome(mContext,item.getComic_id()+"");
+        ComicChapterDetailsActivity.startActivity(mContext,item.getComic_id()+"");
     }
 }
