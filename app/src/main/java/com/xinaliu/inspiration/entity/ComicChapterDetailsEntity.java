@@ -3,6 +3,7 @@ package com.xinaliu.inspiration.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by liuwei on 2017/8/28 17:12
  */
 
-public class ComicChapterDetailsEntity implements Parcelable {
+public class ComicChapterDetailsEntity implements Parcelable ,Serializable{
 
 
     /**
@@ -132,7 +133,7 @@ public class ComicChapterDetailsEntity implements Parcelable {
         this.comic_chapter = comic_chapter;
     }
 
-    public static class ComicTypeBean implements Parcelable {
+    public static class ComicTypeBean implements Parcelable ,Serializable{
 
         /**
          * rexue : 热血
@@ -225,7 +226,7 @@ public class ComicChapterDetailsEntity implements Parcelable {
             this.chapter_list = chapter_list;
         }
 
-        public static class ChapterListBean implements Parcelable {
+        public static class ChapterListBean implements Parcelable ,Serializable{
 
             /**
              * chapter_name : 第1话 陨落的天才（上）
@@ -282,7 +283,7 @@ public class ComicChapterDetailsEntity implements Parcelable {
                 this.chapter_source = chapter_source;
             }
 
-            public static class ChapterSourceBean implements Parcelable {
+            public static class ChapterSourceBean implements Parcelable ,Serializable{
 
                 /**
                  * rule : /comic/D/斗破苍穹拆分版/1话/$$.jpg

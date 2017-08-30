@@ -122,6 +122,7 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
             ToastUtil.toastSome(this,"登录成功");
 //            WebViewNewActivity.startActivity(this,"http://www.shenmanhua.com/asonline/1ce.html");
             CartoonMainActivity.startActivity(this);
+//            GalleryActivity.startActivity(this);
         }else {
             ToastUtil.toastSome(this,"登录失败");
         }

@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: "config.gradle"
 buildscript {
     repositories {
         jcenter()
@@ -9,6 +9,13 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+//        compile rootProject.ext.dependencies["appcompat-v7"]
+//        compile rootProject.ext.dependencies["recyclerview-v7"]
+//        compile rootProject.ext.dependencies["design"]
+//        compile rootProject.ext.dependencies["percent"]
+//        compile rootProject.ext.dependencies["okhttp"]
+//        compile rootProject.ext.dependencies["constraint-layout"]
+
     }
 }
 

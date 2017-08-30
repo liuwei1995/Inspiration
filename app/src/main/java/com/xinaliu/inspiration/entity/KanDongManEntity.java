@@ -3,6 +3,7 @@ package com.xinaliu.inspiration.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * Created by liuwei on 2017/8/28 11:33
  */
 
-public class KanDongManEntity implements Parcelable {
+public class KanDongManEntity implements Parcelable ,Serializable{
 
     /**
      * tab_title : 热门
@@ -69,7 +70,7 @@ public class KanDongManEntity implements Parcelable {
         this.slide = slide;
     }
 
-    public static class DataBean implements Parcelable {
+    public static class DataBean implements Parcelable  ,Serializable{
 
         /**
          * comic_id : 25934
@@ -148,7 +149,7 @@ public class KanDongManEntity implements Parcelable {
         }
     }
 
-    public static class SlideBean implements Parcelable {
+    public static class SlideBean implements Parcelable  ,Serializable{
 
         /**
          * comic_id : 105151
