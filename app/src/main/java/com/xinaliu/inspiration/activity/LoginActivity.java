@@ -121,7 +121,8 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
         if (userEntity != null && !TextUtils.isEmpty(userEntity.getPhoneNumber())){
             ToastUtil.toastSome(this,"登录成功");
 //            WebViewNewActivity.startActivity(this,"http://www.shenmanhua.com/asonline/1ce.html");
-            CartoonMainActivity.startActivity(this);
+//            CartoonMainActivity.startActivity(this);
+            ResetPasswordActivity.startActivity(this);
 //            GalleryActivity.startActivity(this);
         }else {
             ToastUtil.toastSome(this,"登录失败");

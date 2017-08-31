@@ -89,8 +89,9 @@
         <activity
             android:name=".activity.GalleryActivity"
             android:exported="false"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".activity.ResetPasswordActivity">
         </activity>
     </application>
 
