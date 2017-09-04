@@ -91,7 +91,9 @@
             android:exported="false"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".activity.ResetPasswordActivity">
+        <activity android:name=".activity.ResetPasswordActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
+            >
         </activity>
     </application>
 

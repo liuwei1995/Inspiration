@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FFFFFF</color>
+    <!--<color name="colorPrimary">#525866</color>-->
     <!--<color name="colorPrimaryDark">#FFFFFF</color>-->
 
     <!--<color name="colorPrimary">#3F51B5</color>-->
-    <color name="colorPrimaryDark">#303F9F</color>
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <color name="colorPrimaryDark">#525866</color>
+
+
 
     <color name="colorAccent">#FF4081</color>
     <color name="text_color_light_black">#222222</color>
@@ -30,5 +34,8 @@
     <color name="bright_grey">#c0c0c0</color>
 
     <color name="dark_grey">#808080</color>
+
+    <color name="text_reset_password">#525050</color>
+
 
 </resources>

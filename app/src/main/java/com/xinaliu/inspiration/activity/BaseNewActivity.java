@@ -130,8 +130,9 @@ public abstract class BaseNewActivity extends AppCompatActivity implements View.
     }
 
     public void setToolbarTitle (String title){
-        if(tvTitle!=null)
+        if(tvTitle != null){
             tvTitle.setText(title);
+        }
     }
     public void setToolbarTitle (@StringRes int id){
         if(tvTitle!=null)

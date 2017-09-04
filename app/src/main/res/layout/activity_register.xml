@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               xmlns:app="http://schemas.android.com/apk/res-auto"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp">
+
+        <android.support.percent.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/ivLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="9dp"
+                android:layout_marginStart="9dp"
+                android:maxHeight="24dp"
+                android:maxWidth="24dp"
+                android:src="@mipmap/arrow_return"/>
+
+            <TextView
+                android:id="@+id/tvLeftTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/ivLeft"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/text_register"
+                android:textColor="@color/text_reset_password"
+                android:textSize="14sp"
+                app:layout_marginLeftPercent="7.7%"
+                app:layout_marginStartPercent="7.7%"
+                />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="标题"
+                android:textColor="@color/text_reset_password"
+                android:visibility="invisible"/>
+
+        </android.support.percent.PercentRelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/toolbar"
+        app:layout_heightPercent="9%"
+        app:layout_marginLeftPercent="34.3%"
+        app:layout_marginTopPercent="0.5%"
+        app:layout_widthPercent="10%"
+        app:srcCompat="@mipmap/spirit"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_toEndOf="@+id/imageView6"
+        android:layout_toRightOf="@+id/imageView6"
+        app:layout_heightPercent="9.5%"
+        app:layout_marginLeftPercent="6%"
+        app:layout_widthPercent="10%"
+        app:srcCompat="@mipmap/sense"/>
+
+
+
+    <EditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:drawableLeft="@mipmap/user"
+        android:drawablePadding="17.7dp"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="手机号或邮箱"
+        android:inputType="phone"
+        android:maxLength="12"
+        android:paddingLeft="@dimen/album_dp_6"
+        android:textColor="#3f3f3f"
+        android:textCursorDrawable="@drawable/underline_color"
+        android:textSize="14sp"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="5.3%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints,RtlSymmetry"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/etPhoneNumber"
+        android:layout_centerHorizontal="true"
+        android:background="#ded9d9"
+        app:layout_marginTopPercent="0.05%"
+        app:layout_widthPercent="76.25%"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignLeft="@+id/etPhoneNumber"
+        android:layout_alignStart="@+id/etPhoneNumber"
+        android:layout_below="@+id/etPhoneNumber"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:drawableLeft="@mipmap/lock"
+        android:drawablePadding="20.4dp"
+        android:ems="10"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:maxLength="30"
+        android:paddingLeft="@dimen/album_dp_6"
+        android:textColor="#3f3f3f"
+        android:textCursorDrawable="@drawable/underline_color"
+        android:textSize="14sp"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="9.9%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints,RtlSymmetry"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/etPassword"
+        android:layout_centerHorizontal="true"
+        android:background="#ded9d9"
+        app:layout_marginTopPercent="0.05%"
+        app:layout_widthPercent="76.25%"
+        />
+
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPassword"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_btn_login"
+        android:paddingBottom="11.1dp"
+        android:paddingTop="9.7dp"
+        android:text="注册"
+        android:textColor="#f3f2ef"
+        android:textSize="34px"
+        app:layout_constraintBottom_toTopOf="@+id/tvForgetPassword"
+        app:layout_marginTopPercent="8%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints"/>
+
+</android.support.percent.PercentRelativeLayout>

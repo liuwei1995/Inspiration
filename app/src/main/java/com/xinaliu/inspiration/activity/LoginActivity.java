@@ -16,6 +16,8 @@ import com.xinaliu.inspiration.persenter.activity.LoginActivityPersenter;
 import com.xinaliu.inspiration.persenter.activity.impl.LoginActivityPersenterImpl;
 import com.xinaliu.inspiration.util.ToastUtil;
 
+import static com.xinaliu.inspiration.R.id.tvForgetPassword;
+
 
 public class LoginActivity extends BaseNewActivity implements LoginActivityView{
 
@@ -60,7 +62,7 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
         mEtPassword = (EditText) findViewById(R.id.etPassword);
         mBtnLogin = (Button) findViewById(R.id.btnLogin);
         mBtnLogin.setOnClickListener(this);
-        mTvForgetPassword = (TextView) findViewById(R.id.tvForgetPassword);
+        mTvForgetPassword = (TextView) findViewById(tvForgetPassword);
         mTvForgetPassword.setOnClickListener(this);
         mTvRegister = (TextView) findViewById(R.id.tvRegister);
         mTvRegister.setOnClickListener(this);
@@ -74,9 +76,11 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
             case R.id.btnLogin:
                 btnLogin();
                 break;
-            case R.id.tvForgetPassword:
+            case tvForgetPassword:
+                tvForgetPassword();
                 break;
             case R.id.tvRegister:
+                tvRegister();
                 break;
         }
     }
@@ -94,6 +98,16 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
         }
         mLoginActivityPersenter.login(phoneNumber,password);
     }
+
+
+    private void tvForgetPassword() {
+        ResetPasswordActivity.startActivity(this);
+    }
+
+    private void tvRegister() {
+
+    }
+
 
     @Override
     public void startRequest() {
