@@ -11,7 +11,6 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.xinaliu.inspiration.R;
 
 /**
  * Created by liuwei on 2017/8/17 11:19
@@ -70,7 +69,8 @@ public class GlideUtils {
                         }
                     })
                 .into(imageView)
-                .onLoadStarted(mContext.getResources().getDrawable(R.mipmap.app_logo));
+//                .onLoadStarted(mContext.getResources().getDrawable(R.mipmap.app_logo))
+                ;
     }
 
     public void stop() {

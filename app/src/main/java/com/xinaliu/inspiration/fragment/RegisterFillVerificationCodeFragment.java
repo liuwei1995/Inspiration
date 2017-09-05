@@ -2,48 +2,54 @@ package com.xinaliu.inspiration.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.xinaliu.inspiration.I.FragmentPopBackStack;
 import com.xinaliu.inspiration.R;
+import com.xinaliu.inspiration.util.ToastUtil;
 
 /**
- * 忘记密码
- * Created by liuwei on 2017/9/4 13:25
+ * 注册填写验证码Fragment
+ * Created by liuwei on 2017/9/5 09:40
  */
 
-public class ResetPasswordForgetFragment extends BaseNewFragment{
+public class RegisterFillVerificationCodeFragment extends BaseNewFragment implements View.OnClickListener {
 
-    private View view;
-    /**
-     * 手机号或邮箱
-     */
-    private EditText mEtAccount;
-    /**
-     * 下一步
-     */
-    private Button mBtnNextStep;
 
-    public static ResetPasswordForgetFragment newInstance() {
+    public static RegisterFillVerificationCodeFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        ResetPasswordForgetFragment fragment = new ResetPasswordForgetFragment();
+        RegisterFillVerificationCodeFragment fragment = new RegisterFillVerificationCodeFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
 
+
+    private View view;
+    /**
+     * 输入密码
+     */
+    private EditText mEtPassword;
+    /**
+     * 发送验证码
+     */
+    private TextView mTvSendCode;
+    /**
+     * 下一步
+     */
+    private Button mBtnNextStep;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        view = View.inflate(getActivity(), R.layout.fragment_reset_password_forget, null);
+        view = View.inflate(getActivity(), R.layout.fragment_register_fill_verification_code, null);
     }
 
     @Nullable
@@ -59,9 +65,10 @@ public class ResetPasswordForgetFragment extends BaseNewFragment{
         Object o  = mContext;
         if (mContext instanceof FragmentPopBackStack){
             FragmentPopBackStack f = (FragmentPopBackStack) o;
-            f.changeActivityTitle("忘记密码");
+            f.changeActivityTitle("请填写验证码");
         }
     }
+
 
     @Override
     protected void onVisible() {
@@ -69,28 +76,22 @@ public class ResetPasswordForgetFragment extends BaseNewFragment{
         Object o  = mContext;
         if (mContext instanceof FragmentPopBackStack){
             FragmentPopBackStack f = (FragmentPopBackStack) o;
-            f.changeActivityTitle("忘记密码");
+            f.changeActivityTitle("请填写验证码");
         }
     }
 
     public void initView(View view) {
-
-        mEtAccount = (EditText) view.findViewById(R.id.etNewPassword);
-        mBtnNextStep = (Button) view.findViewById(R.id.btnSubmit);
+        mEtPassword = (EditText) view.findViewById(R.id.etPassword);
+        mTvSendCode = (TextView) view.findViewById(R.id.tvSendCode);
+        mBtnNextStep = (Button) view.findViewById(R.id.btnNextStep);
         mBtnNextStep.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnSubmit:
-                final FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-                transaction.setCustomAnimations(R.anim.slide_right_in,R.anim.slide_left_out,R.anim.slide_left_in,R.anim.slide_right_out);
-                transaction.add(R.id.fragment,ResetPasswordResetFragment.newInstance());
-                transaction.hide(this);
-                transaction.addToBackStack(null);
-                transaction.commit();
+            case R.id.btnNextStep:
+                ToastUtil.toastSome(mContext,"下一步");
                 break;
         }
     }

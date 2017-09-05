@@ -37,5 +37,7 @@
 
     <color name="text_reset_password">#525050</color>
 
+    <color name="text_verification_code_button">#b8a6dc</color>
+
 
 </resources>

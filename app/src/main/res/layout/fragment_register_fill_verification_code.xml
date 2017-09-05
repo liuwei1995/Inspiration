@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                               xmlns:app="http://schemas.android.com/apk/res-auto"
+                                               xmlns:tools="http://schemas.android.com/tools"
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent">
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/prl_et"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="11%"
+        app:layout_marginTopPercent="21%"
+        app:layout_widthPercent="76.25%"
+        >
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:drawableLeft="@mipmap/lock"
+            android:drawablePadding="20.4dp"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="输入验证码"
+            android:inputType="number"
+            android:maxLength="30"
+            android:paddingLeft="@dimen/album_dp_6"
+            android:textColor="#3f3f3f"
+            android:textCursorDrawable="@drawable/underline_color"
+            android:textSize="14sp"
+            tools:ignore="MissingConstraints,RtlSymmetry"/>
+
+        <TextView
+            android:id="@+id/tvSendCode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:paddingEnd="4dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingStart="4dp"
+            android:text="发送验证码"
+            android:textColor="@color/text_verification_code_button"
+            app:paddingEnd="3dp"/>
+    </android.support.percent.PercentRelativeLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/prl_et"
+        android:layout_centerHorizontal="true"
+        android:background="#ded9d9"
+        app:layout_marginTopPercent="0.05%"
+        app:layout_widthPercent="76.25%"
+        />
+
+
+    <Button
+        android:id="@+id/btnNextStep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prl_et"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background_btn_login"
+        android:paddingBottom="11.1dp"
+        android:paddingTop="9.7dp"
+        android:text="下一步"
+        android:textColor="#f3f2ef"
+        android:textSize="34px"
+        app:layout_marginTopPercent="8.1%"
+        app:layout_widthPercent="76.25%"
+        tools:ignore="MissingConstraints"/>
+
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@mipmap/background_login"
+        app:layout_heightPercent="19.6%">
+
+    </android.support.percent.PercentRelativeLayout>
+</android.support.percent.PercentRelativeLayout>

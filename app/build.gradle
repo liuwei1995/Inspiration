@@ -166,5 +166,5 @@ repositories {
 }
 
 def releaseTime() {
-    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+    return new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
 }

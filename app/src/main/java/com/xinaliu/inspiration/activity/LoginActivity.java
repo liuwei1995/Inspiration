@@ -60,7 +60,7 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
     private void initView() {
         mEtPhoneNumber = (EditText) findViewById(R.id.etPhoneNumber);
         mEtPassword = (EditText) findViewById(R.id.etPassword);
-        mBtnLogin = (Button) findViewById(R.id.btnLogin);
+        mBtnLogin = (Button) findViewById(R.id.btnRegister);
         mBtnLogin.setOnClickListener(this);
         mTvForgetPassword = (TextView) findViewById(tvForgetPassword);
         mTvForgetPassword.setOnClickListener(this);
@@ -73,7 +73,7 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnLogin:
+            case R.id.btnRegister:
                 btnLogin();
                 break;
             case tvForgetPassword:
@@ -105,7 +105,7 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
     }
 
     private void tvRegister() {
-
+        RegisterActivity.startActivity(this);
     }
 
 
@@ -135,8 +135,8 @@ public class LoginActivity extends BaseNewActivity implements LoginActivityView{
         if (userEntity != null && !TextUtils.isEmpty(userEntity.getPhoneNumber())){
             ToastUtil.toastSome(this,"登录成功");
 //            WebViewNewActivity.startActivity(this,"http://www.shenmanhua.com/asonline/1ce.html");
-//            CartoonMainActivity.startActivity(this);
-            ResetPasswordActivity.startActivity(this);
+            CartoonMainActivity.startActivity(this);
+//            ResetPasswordActivity.startActivity(this);
 //            GalleryActivity.startActivity(this);
         }else {
             ToastUtil.toastSome(this,"登录失败");

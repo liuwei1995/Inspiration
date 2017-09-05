@@ -23,7 +23,7 @@ public class ReadComicActivityAdapter extends HealthyAdapter<String>{
 //        ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
 //        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
 //        holder.setImageDrawable(R.id.iv_comic,holder.itemView.getContext().getResources().getDrawable(R.mipmap.app_logo));
-        holder.itemView.setTag(item);
+//        holder.itemView.setTag(item);
         holder.setImageByUrl(R.id.iv_comic,item);
     }
 }

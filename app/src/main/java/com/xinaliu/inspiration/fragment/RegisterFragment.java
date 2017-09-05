@@ -14,36 +14,39 @@ import com.xinaliu.inspiration.I.FragmentPopBackStack;
 import com.xinaliu.inspiration.R;
 
 /**
- * 忘记密码
- * Created by liuwei on 2017/9/4 13:25
+ * 注册Fragment
+ * Created by liuwei on 2017/9/5 09:36
  */
 
-public class ResetPasswordForgetFragment extends BaseNewFragment{
+public class RegisterFragment extends BaseNewFragment implements View.OnClickListener {
 
     private View view;
     /**
      * 手机号或邮箱
      */
-    private EditText mEtAccount;
+    private EditText mEtPhoneNumber;
     /**
-     * 下一步
+     * 输入密码
      */
-    private Button mBtnNextStep;
+    private EditText mEtPassword;
+    /**
+     * 注册
+     */
+    private Button mBtnRegister;
 
-    public static ResetPasswordForgetFragment newInstance() {
+    public static RegisterFragment newInstance() {
 
         Bundle args = new Bundle();
 
-        ResetPasswordForgetFragment fragment = new ResetPasswordForgetFragment();
+        RegisterFragment fragment = new RegisterFragment();
         fragment.setArguments(args);
         return fragment;
     }
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        view = View.inflate(getActivity(), R.layout.fragment_reset_password_forget, null);
+        view = View.inflate(getActivity(), R.layout.fragment_register, null);
     }
 
     @Nullable
@@ -59,7 +62,7 @@ public class ResetPasswordForgetFragment extends BaseNewFragment{
         Object o  = mContext;
         if (mContext instanceof FragmentPopBackStack){
             FragmentPopBackStack f = (FragmentPopBackStack) o;
-            f.changeActivityTitle("忘记密码");
+            f.changeActivityTitle("注册");
         }
     }
 
@@ -69,25 +72,26 @@ public class ResetPasswordForgetFragment extends BaseNewFragment{
         Object o  = mContext;
         if (mContext instanceof FragmentPopBackStack){
             FragmentPopBackStack f = (FragmentPopBackStack) o;
-            f.changeActivityTitle("忘记密码");
+            f.changeActivityTitle("注册");
         }
     }
 
-    public void initView(View view) {
 
-        mEtAccount = (EditText) view.findViewById(R.id.etNewPassword);
-        mBtnNextStep = (Button) view.findViewById(R.id.btnSubmit);
-        mBtnNextStep.setOnClickListener(this);
+    public void initView(View view) {
+        mEtPhoneNumber = (EditText) view.findViewById(R.id.etPhoneNumber);
+        mEtPassword = (EditText) view.findViewById(R.id.etPassword);
+        mBtnRegister = (Button) view.findViewById(R.id.btnRegister);
+        mBtnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnSubmit:
+            case R.id.btnRegister:
                 final FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setCustomAnimations(R.anim.slide_right_in,R.anim.slide_left_out,R.anim.slide_left_in,R.anim.slide_right_out);
-                transaction.add(R.id.fragment,ResetPasswordResetFragment.newInstance());
+                transaction.add(R.id.fragment,RegisterFillVerificationCodeFragment.newInstance());
                 transaction.hide(this);
                 transaction.addToBackStack(null);
                 transaction.commit();

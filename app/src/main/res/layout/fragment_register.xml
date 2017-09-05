@@ -9,10 +9,9 @@
         android:id="@+id/imageView6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_alignParentTop="true"
         app:layout_heightPercent="9%"
         app:layout_marginLeftPercent="34.3%"
-        app:layout_marginTopPercent="6%"
+        app:layout_marginTopPercent="2%"
         app:layout_widthPercent="10%"
         app:srcCompat="@mipmap/spirit"/>
 
@@ -28,34 +27,6 @@
         app:layout_widthPercent="10%"
         app:srcCompat="@mipmap/sense"/>
 
-    <android.support.design.widget.TextInputLayout
-
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_below="@+id/imageView6"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        app:layout_heightPercent="11%"
-        app:layout_marginTopPercent="6%"
-        app:layout_widthPercent="76.25%">
-
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@mipmap/user"
-            android:drawablePadding="17.7dp"
-            android:ems="10"
-            android:hint="手机号或邮箱"
-            android:inputType="phone"
-            android:maxLength="12"
-            android:paddingLeft="@dimen/album_dp_6"
-            android:textColor="#3f3f3f"
-            android:textCursorDrawable="@drawable/underline_color"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText,RtlSymmetry"/>
-
-    </android.support.design.widget.TextInputLayout>
 
     <EditText
         android:id="@+id/etPhoneNumber"
@@ -76,7 +47,7 @@
         android:textCursorDrawable="@drawable/underline_color"
         android:textSize="14sp"
         app:layout_heightPercent="11%"
-        app:layout_marginTopPercent="8%"
+        app:layout_marginTopPercent="5.3%"
         app:layout_widthPercent="76.25%"
         tools:ignore="MissingConstraints,RtlSymmetry"/>
 
@@ -99,10 +70,10 @@
         android:layout_below="@+id/etPhoneNumber"
         android:layout_centerVertical="true"
         android:background="@null"
-        android:gravity="center_vertical"
         android:drawableLeft="@mipmap/lock"
         android:drawablePadding="20.4dp"
         android:ems="10"
+        android:gravity="center_vertical"
         android:hint="输入密码"
         android:inputType="textPassword"
         android:maxLength="30"
@@ -111,7 +82,7 @@
         android:textCursorDrawable="@drawable/underline_color"
         android:textSize="14sp"
         app:layout_heightPercent="11%"
-        app:layout_marginTopPercent="5%"
+        app:layout_marginTopPercent="9.9%"
         app:layout_widthPercent="76.25%"
         tools:ignore="MissingConstraints,RtlSymmetry"/>
 
@@ -125,6 +96,7 @@
         app:layout_widthPercent="76.25%"
         />
 
+
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
@@ -134,40 +106,12 @@
         android:background="@drawable/background_btn_login"
         android:paddingBottom="11.1dp"
         android:paddingTop="9.7dp"
-        android:text="登录"
+        android:text="注册"
         android:textColor="#f3f2ef"
         android:textSize="34px"
         app:layout_constraintBottom_toTopOf="@+id/tvForgetPassword"
         app:layout_marginTopPercent="8%"
         app:layout_widthPercent="76.25%"
-        tools:ignore="MissingConstraints"/>
-
-
-    <TextView
-        android:id="@+id/tvForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnRegister"
-        android:layout_alignStart="@+id/btnRegister"
-        android:layout_below="@+id/btnRegister"
-        android:text="忘记密码"
-        android:textColor="#3f3f3f"
-        android:textSize="12sp"
-        app:layout_marginTopPercent="8%"
-        tools:ignore="HardcodedText,MissingConstraints"/>
-
-
-    <TextView
-        android:id="@+id/tvRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnRegister"
-        android:layout_alignRight="@+id/btnRegister"
-        android:layout_below="@+id/btnRegister"
-        android:text="手机注册"
-        android:textColor="#3f3f3f"
-        android:textSize="12sp"
-        app:layout_marginTopPercent="8%"
         tools:ignore="MissingConstraints"/>
 
 
@@ -183,6 +127,7 @@
         <android.support.percent.PercentRelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             >
 
             <ImageView
