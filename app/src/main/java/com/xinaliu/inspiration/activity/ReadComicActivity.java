@@ -1,9 +1,14 @@
 package com.xinaliu.inspiration.activity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -13,17 +18,20 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 import com.xinaliu.inspiration.R;
 import com.xinaliu.inspiration.adapter.ReadComicActivityAdapter;
 import com.xinaliu.inspiration.entity.ComicChapterDetailsEntity;
 import com.xinaliu.inspiration.util.LogUtils;
 import com.xinaliu.inspiration.util.NetWorkUtils;
+import com.xinaliu.inspiration.util.image.GlideUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 查看漫画
  * Created by liuwei on 2017/8/29 10:57
  */
 
@@ -47,31 +55,46 @@ public class ReadComicActivity extends BaseNewActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_comic);
+        registerNetReceiver();
         initView();
         boolean wifiConnected = NetWorkUtils.isWifiConnected(this.getApplicationContext());
         if (!wifiConnected){
 //            NetWorkActivity.startActivityForResult(this,100);
-            showAlertDialog();
+            showAlertDialog(null);
         }else {
             getData();
         }
     }
     private AlertDialog  mDialog;
+    private TextView tvDialogTitle;
 
-    private void showAlertDialog() {
-        AlertDialog.Builder mAlertDialog = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this.getApplicationContext()).inflate(R.layout.hint_network, null);
-        view.findViewById(R.id.tv_cancel).setOnClickListener(this);
-        view.findViewById(R.id.tv_continue).setOnClickListener(this);
-        mAlertDialog.setView(view);
-        mAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            @Override
-            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
-                finish();
-                return false;
+    private synchronized void showAlertDialog(String title) {
+        if (mDialog == null){
+            AlertDialog.Builder mAlertDialog = new AlertDialog.Builder(this);
+            View view = LayoutInflater.from(this.getApplicationContext()).inflate(R.layout.hint_network, null);
+            tvDialogTitle = (TextView) view.findViewById(R.id.tv_title);
+            if (!TextUtils.isEmpty(title)){
+                tvDialogTitle.setText(title);
             }
-        });
-        mDialog = mAlertDialog.show();
+            view.findViewById(R.id.tv_cancel).setOnClickListener(this);
+            view.findViewById(R.id.tv_continue).setOnClickListener(this);
+            mAlertDialog.setView(view);
+            mAlertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                @Override
+                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                    finish();
+                    return false;
+                }
+            });
+            mDialog = mAlertDialog.show();
+        }else {
+            if (!mDialog.isShowing()){
+                if (!TextUtils.isEmpty(title)){
+                    tvDialogTitle.setText(title);
+                }
+                mDialog.show();
+            }
+        }
     }
 
     private void getData() {
@@ -138,7 +161,61 @@ public class ReadComicActivity extends BaseNewActivity {
         if (v.getId() == R.id.tv_cancel){
             finish();
         }else if (v.getId() == R.id.tv_continue){
+            GlideUtils.newInstance().resume();
             getData();
         }
+    }
+    private NetworkConnectChangedReceiver mNetworkConnectChangedReceiver;
+
+    public void registerNetReceiver(){
+        IntentFilter filter = new IntentFilter();
+        //监听wifi连接（手机与路由器之间的连接）
+//        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+//        //监听互联网连通性（也就是是否已经可以上网了），当然只是指wifi网络的范畴
+//        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+        //这个是监听网络状态的，包括了wifi和移动网络。
+        filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(mNetworkConnectChangedReceiver = new NetworkConnectChangedReceiver(), filter);
+    }
+
+    public class NetworkConnectChangedReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+           if (ConnectivityManager.CONNECTIVITY_ACTION.equals(intent.getAction())){
+                NetworkInfo extra_network_info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                if (extra_network_info != null){
+                    NetworkInfo.State state = extra_network_info.getState();
+                    LogUtils.d(state);
+                    int type = extra_network_info.getType();
+                    String typeName = extra_network_info.getTypeName();
+                    if ("MOBILE".equals(typeName) && type == 0){
+//                        showAlertDialog(null);
+                        if ("CONNECTED".equals(state.toString())){
+                            GlideUtils.newInstance().stop();
+                            showAlertDialog("当前处于移动数据流量是否继续浏览");
+                        }else if ("DISCONNECTED".equals(state.toString())){
+                            GlideUtils.newInstance().stop();
+                        }
+                    }else if ("WIFI".equals(typeName) && type == 1){
+                        if ("CONNECTED".equals(state.toString())){
+                            GlideUtils.newInstance().resume();
+                        }else if ("DISCONNECTED".equals(state.toString())){
+                            GlideUtils.newInstance().stop();
+                        }
+                    }
+                    LogUtils.d(typeName);
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        GlideUtils.newInstance().resume();
+        if (mDialog != null)mDialog.dismiss();
+        if (mNetworkConnectChangedReceiver != null)
+        unregisterReceiver(mNetworkConnectChangedReceiver);
+        super.onDestroy();
     }
 }
